@@ -146,7 +146,7 @@ MonoBehaviour:
   cameraScript: {fileID: 1888161448}
   paddleTransform: {fileID: 1757506071}
   ballShot: {fileID: 1964329178}
-  healthUI: {fileID: 0}
+  healthUI: {fileID: 298186154}
 --- !u!4 &102683161
 Transform:
   m_ObjectHideFlags: 0
@@ -300,6 +300,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &233447257 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1305459712408684, guid: 79167250dae14524982406dbbb0df546,
+    type: 2}
+  m_PrefabInternal: {fileID: 2075903077}
 --- !u!1 &290850052
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +352,26 @@ MonoBehaviour:
     PlayOnAwake: 1
     loop: 0
     source: {fileID: 0}
+--- !u!1 &298186153 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1739288546315688, guid: 79167250dae14524982406dbbb0df546,
+    type: 2}
+  m_PrefabInternal: {fileID: 2075903077}
+--- !u!114 &298186154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 298186153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee15e88cbedfa064e9426907d4c6268a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIHeart:
+  - {fileID: 1564323458}
+  - {fileID: 1381442845}
+  - {fileID: 233447257}
 --- !u!1 &320481509 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1255698250865188, guid: 79167250dae14524982406dbbb0df546,
@@ -778,6 +803,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79ca55cedbac5f44ca24c843a141d7c4, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1381442845 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1753160070546854, guid: 79167250dae14524982406dbbb0df546,
+    type: 2}
+  m_PrefabInternal: {fileID: 2075903077}
 --- !u!95 &1494341517 stripped
 Animator:
   m_PrefabParentObject: {fileID: 95514673967145782, guid: 79167250dae14524982406dbbb0df546,
@@ -850,6 +880,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 94c33f67172421546b67db769e7623d8, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1564323458 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1397293107441984, guid: 79167250dae14524982406dbbb0df546,
+    type: 2}
+  m_PrefabInternal: {fileID: 2075903077}
 --- !u!1 &1618195209
 GameObject:
   m_ObjectHideFlags: 0
