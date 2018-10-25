@@ -13,7 +13,7 @@ public ParticleSystem zeroParticle;
 public ParticleSystem oneParticle;
 
 public Animator anim;
-
+public Animator anim2;
 private Rigidbody2D rb;
 
 	// Use this for initialization
@@ -34,7 +34,10 @@ private Rigidbody2D rb;
 		yield return new WaitForSeconds(1.5f);
 		canvas.SetActive(false);
 		sp.color = invisible;
+		zeroParticle.Clear();
+		oneParticle.Clear();
 		anim.SetTrigger("glitching");
+		anim2.SetTrigger("glitching");
 		yield return new WaitForSeconds(1f);
 		GameInit();
 		
