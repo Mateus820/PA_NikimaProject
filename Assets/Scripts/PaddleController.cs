@@ -9,6 +9,7 @@ public class PaddleController : MonoBehaviour {
     public int ballCount;
     public int ballsHitted;
     public int activeBall;
+    [SerializeField] private Color[] colors;
     public bool isMovingWithSwipe { get; private set; }
     public bool isClicking { get; private set; }
     private Rigidbody2D rb;
@@ -92,6 +93,7 @@ public class PaddleController : MonoBehaviour {
         isClicking = true;
         Singleton.GetInstance.ballShot.angleArrow.SetActive(false);
     }
+
     public void MoveLeft()
     {
         rb.velocity = new Vector2(-speed * Time.deltaTime, rb.velocity.y);
@@ -106,6 +108,7 @@ public class PaddleController : MonoBehaviour {
         animRightArrow.SetInteger("glitching", Mathf.RoundToInt(rb.velocity.x));
         isClicking = false;
     }
+
     public void StopMoveLeft()
     {
         rb.velocity = new Vector2(0, rb.velocity.y);
@@ -136,12 +139,12 @@ public class PaddleController : MonoBehaviour {
     }
     #endregion BallController
 
-    #region IENumerators
+    #region IEnumerators
     IEnumerator TurnMoveFalse(float time)
     {
         yield return new WaitForSeconds(time);
         isMovingWithSwipe = false;
     }
-    #endregion IENumerators
+    #endregion IEnumerators
 
 }
