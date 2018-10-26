@@ -230,6 +230,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 160504884}
+  - component: {fileID: 160504885}
   m_Layer: 5
   m_Name: SettingsMenu
   m_TagString: Untagged
@@ -260,6 +261,19 @@ RectTransform:
   m_AnchoredPosition: {x: 91.7259, y: -7.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &160504885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 160504883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e80bdbc835041848837b84d935a8ec3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowsAnim: {fileID: 1260941392}
+  swipeAnim: {fileID: 1104326156}
 --- !u!1 &257456663
 GameObject:
   m_ObjectHideFlags: 0
@@ -5276,12 +5290,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 623546471}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e80bdbc835041848837b84d935a8ec3, type: 3}
+  m_Script: {fileID: 11500000, guid: 17e671a5e6c622d4483e9efb7fb0541a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowsAnim: {fileID: 1260941392}
-  swipeAnim: {fileID: 1104326156}
-  SettingsMenu: {fileID: 160504883}
+  settingsMenu: {fileID: 160504883}
 --- !u!1 &758001531
 GameObject:
   m_ObjectHideFlags: 0
@@ -5632,7 +5644,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 623546474}
+      - m_Target: {fileID: 160504885}
         m_MethodName: ChoosingSwipe
         m_Mode: 1
         m_Arguments:
@@ -6007,7 +6019,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 623546474}
+      - m_Target: {fileID: 160504885}
         m_MethodName: ChoosingArrows
         m_Mode: 1
         m_Arguments:

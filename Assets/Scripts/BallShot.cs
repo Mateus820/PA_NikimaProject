@@ -60,7 +60,7 @@ public class BallShot : MonoBehaviour {
 	void Shot(PaddleController playerScript){
 		var obj =  ObjectPooler.instance.GetPooledObject();
 
-		SpriteRenderer sp = obj.GetComponent<SpriteRenderer>();
+		SpriteRenderer sp = obj.GetComponentInChildren<SpriteRenderer>();
 		sp.color = paddleSprite.color;
 
 		if(obj != null){

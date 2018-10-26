@@ -3,62 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Settings : MonoBehaviour {
-
-	string playerMovement;
-
-	public Animator arrowsAnim;
-
-	public Animator swipeAnim;
-	public GameObject SettingsMenu;
-	void Start () 
-	{
-		if(PlayerPrefs.HasKey("PlayerMomevent"))
-		{
-			playerMovement = PlayerPrefs.GetString("PlayerMovement");
-		}
-
-		else
-		{
-			playerMovement = "arrows";
-		}
-		
-	}
 	
-	
-	void Update () 
+	[SerializeField] private Animator arrowsAnim;
+	[SerializeField] private Animator swipeAnim;
+
+	void OnEnable()
 	{
-		if(PlayerPrefs.GetString("PlayerMovement") == "arrows")
-		{
+		print("OnEnable");
+		if(PlayerPrefs.GetString("PlayerMovement") == "arrows"){
 			swipeAnim.SetBool("glitching" , false);
 			arrowsAnim.SetBool("glitching" , true);
-		}
-
-		if(PlayerPrefs.GetString("PlayerMovement") == "swipe")
-		{
+		}  
+		else if(PlayerPrefs.GetString("PlayerMovement") == "swipe"){
 			arrowsAnim.SetBool("glitching" , false);
 			swipeAnim.SetBool("glitching" , true);
 		}
-		
 	}
 
-	public void OpenMenu()
+	void Start () 
 	{
-		SettingsMenu.SetActive(true);
+		print("Start");
+		if(!PlayerPrefs.HasKey("PlayerMomevent")){
+			PlayerPrefs.SetString("PlayerMovement" , "arrows");
+		}
 	}
-	
-	public void CloseMenu()
+
+	public void ChoosingArrows()
 	{
-		SettingsMenu.SetActive(false);
+		PlayerPrefs.SetString("PlayerMovement" , "arrows");
+
+		//animações
+		swipeAnim.SetBool("glitching" , false);
+		arrowsAnim.SetBool("glitching" , true);
 	}
 
-public void ChoosingArrows()
-{
-	PlayerPrefs.SetString("PlayerMovement" , "arrows");
-}
-
-public void ChoosingSwipe()
-{
-	PlayerPrefs.SetString("PlayerMovement" , "swipe");
-}
+	public void ChoosingSwipe()
+	{
+		PlayerPrefs.SetString("PlayerMovement" , "swipe");
+		//animações
+		arrowsAnim.SetBool("glitching" , false);
+		swipeAnim.SetBool("glitching" , true);
+	}
 
 }
