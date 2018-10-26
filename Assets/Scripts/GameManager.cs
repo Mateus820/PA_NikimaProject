@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
     public Vector2 playerPos;
 
     public bool moveBySwipe { get; private set; }
-    public bool arrowsTest;
+    
     public GameObject arrowsUI;
 
     void Start () {
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
 	
 	void Update () {
 
-        if (!arrowsTest)
+        if (PlayerPrefs.GetString("PlayerMovement") == "swipe")
         {
             arrowsUI.SetActive(false);
             moveBySwipe = true;
