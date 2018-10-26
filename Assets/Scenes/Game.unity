@@ -443,11 +443,6 @@ Prefab:
       propertyPath: ballCount
       value: 
       objectReference: {fileID: 1867362408}
-    - target: {fileID: 114547439127163934, guid: 1da07fb83a813bf4383be63c918bde47,
-        type: 2}
-      propertyPath: setTimeColor
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1da07fb83a813bf4383be63c918bde47, type: 2}
   m_IsPrefabParent: 0
