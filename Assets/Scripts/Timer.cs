@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour {
 
     // Use this for initialization
     float seconds;
     int minutes;
-    [SerializeField] Text timeUI;
     int secondsUI;
-
+    [SerializeField] Text timeUI;
 
     void Start()
     {
@@ -19,7 +19,6 @@ public class Timer : MonoBehaviour {
         secondsUI = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -39,6 +38,8 @@ public class Timer : MonoBehaviour {
             timeUI.text = minutes.ToString() + ":0" + secondsUI.ToString();
         }
 
-
+        //if(minutes < 0){
+        //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //}
     }
 }
