@@ -8,7 +8,6 @@ public class BallShot : MonoBehaviour {
 	public GameObject angleArrow;
 	public BallCount ballCount;
 	[SerializeField] private float delaySetColor;
-	[SerializeField] private float setTimeColor;
 	[SerializeField] private SpriteRenderer paddleSprite;
 	[SerializeField] private SpriteRenderer arrowSprite;
 	[SerializeField] private float offset;
@@ -16,14 +15,12 @@ public class BallShot : MonoBehaviour {
 	[SerializeField] private Color[] colors;
 	private PaddleController playerScript;
 	private bool changeColor;
-	[SerializeField] private float timeColor;
 
     void Start() 
 	{
 		changeColor = true;
 		angleArrow.SetActive(false);
         playerScript = Singleton.GetInstance.playerScript;
-		timeColor = setTimeColor;
 		StartCoroutine(SetColor());
     }
 	void Update () {
@@ -40,13 +37,10 @@ public class BallShot : MonoBehaviour {
 
 				//CancelRoutine();
                 Shot(playerScript);
-
-				//changeColor = true;
-				//StartCoroutine(SetColor());
+				changeColor = true;
             }
 			if(Input.GetMouseButtonDown(0)){
-				//changeColor = false;
-				StopCoroutine(SetColor());
+				changeColor = false;
 			}
         }
 
@@ -77,16 +71,20 @@ public class BallShot : MonoBehaviour {
 	}
 
 	Color RandomBallColor(Color cl){
-		//if(cl != Color.white){
-			return colors[Random.Range(0, colors.Length - 1)];
-		//}
-		//return cl;
+		Color colorReturn;
+		if((colorReturn = colors[Random.Range(0, colors.Length - 1)]) == cl){
+			RandomBallColor(paddleSprite.color);
+		}
+		//print(cl);
+		return colorReturn;
 	}
 
 	IEnumerator SetColor(){
-		while(changeColor){
-			paddleSprite.color = RandomBallColor(paddleSprite.color);
-			arrowSprite.color = paddleSprite.color;
+		while(true){
+			if(changeColor){
+				paddleSprite.color = RandomBallColor(paddleSprite.color);
+				arrowSprite.color = paddleSprite.color;
+			}
 			yield return new WaitForSeconds(delaySetColor);
 		}
 	}

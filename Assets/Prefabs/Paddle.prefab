@@ -192,7 +192,7 @@ MonoBehaviour:
   rotZ: 0
   angleArrow: {fileID: 1376934473202788}
   ballCount: {fileID: 0}
-  delaySetColor: 0.5
+  delaySetColor: 1
   paddleSprite: {fileID: 212144392076941392}
   arrowSprite: {fileID: 212484594997487962}
   offset: -90
