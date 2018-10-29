@@ -5,10 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - ScreenBottom
+  - Pink
   - GreenBall
-  - PinkBall
-  - BlueBall
-  - OrangeBall
   layers:
   - Default
   - TransparentFX
