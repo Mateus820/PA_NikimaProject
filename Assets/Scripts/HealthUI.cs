@@ -30,7 +30,7 @@ public class HealthUI : MonoBehaviour {
 
 			case 0:
 				StartCoroutine(DestroingHeart(UIHeart[0]));
-				SceneManager.LoadScene(sceneBuildIndex: SceneManager.GetActiveScene().buildIndex);
+				SceneManager.LoadScene(sceneBuildIndex: 2);
 			break;
 
 		}
