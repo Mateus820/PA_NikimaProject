@@ -12,11 +12,14 @@ public class PaddleController : MonoBehaviour {
     [SerializeField] private Color[] colors;
     public bool isMovingWithSwipe { get; private set; }
     public bool isClicking { get; private set; }
+    public bool isJoyStickMoving;
     private Rigidbody2D rb;
     private Collider2D coll;
     private bool moveBySwipe;
     [SerializeField] private float speed;
     [SerializeField] private BallCount ballCountScript;
+    [SerializeField] private BallShot ballShot;
+    [SerializeField] private Vector2 finalSpeed;
 
      public Animator animLeftArrow;
      public Animator animRightArrow;
@@ -33,6 +36,7 @@ public class PaddleController : MonoBehaviour {
 
         isMovingWithSwipe = false;
         isClicking = false;
+        isJoyStickMoving = true;
 
         moveBySwipe = managerOpt.moveBySwipe;
 	}
@@ -42,6 +46,12 @@ public class PaddleController : MonoBehaviour {
         moveBySwipe = managerOpt.moveBySwipe;
         transform.position = new Vector3(Mathf.Clamp(transform.position.x,-2.18f ,2.18f) , transform.position.y);
         rb.velocity = new Vector2 (Mathf.Clamp(rb.velocity.x ,-speed * Time.deltaTime, speed * Time.deltaTime) , rb.velocity.y);
+        finalSpeed = MoveJoyStick();
+        
+        if(Input.GetButtonDown("Fire1")){
+            ballShot.isJoystickShooting = !ballShot.isJoystickShooting;
+            ballShot.ChangeColor = false;
+        }
     }
 
     #region InputEvents
@@ -72,6 +82,9 @@ public class PaddleController : MonoBehaviour {
             Vector3 realMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             rb.MovePosition(new Vector2(realMousePos.x, rb.position.y));
         }
+        else if(isJoyStickMoving && !ballShot.isJoystickShooting){
+            rb.velocity = finalSpeed;
+        }
     }
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -88,7 +101,7 @@ public class PaddleController : MonoBehaviour {
     public void MoveRight()
     {
         rb.velocity = new Vector2(speed * Time.deltaTime, rb.velocity.y);
-         animRightArrow.SetInteger("glitching", Mathf.RoundToInt(rb.velocity.x));
+        animRightArrow.SetInteger("glitching", Mathf.RoundToInt(rb.velocity.x));
         isClicking = true;
         Singleton.GetInstance.ballShot.angleArrow.SetActive(false);
     }
@@ -115,6 +128,23 @@ public class PaddleController : MonoBehaviour {
         isClicking = false;
     }
     #endregion ArrowMove
+
+    #region JoystickMove
+    Vector2 MoveJoyStick(){
+        Vector2 finalSpeed = new Vector2();
+        if(isJoyStickMoving){
+            float x = Input.GetAxisRaw("Horizontal");
+            if(x > 0){
+                finalSpeed.x = speed * 0.02f; 
+            }
+            else if(x < 0){
+                finalSpeed.x = -speed * 0.02f;
+            }
+            return finalSpeed;
+        }
+        return Vector2.zero;
+    }
+    #endregion
 
     #region BallController
     void AddingBalls()
