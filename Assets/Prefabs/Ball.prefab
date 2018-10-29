@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162f3b7571a5c2c4ab472f31f05c4c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballForce: 400
+  ballForce: 300
   rb: {fileID: 50304104721874906}
   circleColl: {fileID: 58113181364559070}
 --- !u!212 &212923299119522422
