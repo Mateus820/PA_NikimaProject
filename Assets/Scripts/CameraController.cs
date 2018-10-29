@@ -6,16 +6,13 @@ public class CameraController : MonoBehaviour
 {
     private Animator an;
     public static CameraController instance;
-    void Start()
-    {
+
+    void Start(){
         an = GetComponent<Animator>();
     }
 
-
-    public void CameraShake()
-    {
+    public void CameraShake(){
         an.SetTrigger("shake");
-         Handheld.Vibrate();
- 
+        Handheld.Vibrate();
     }
 }

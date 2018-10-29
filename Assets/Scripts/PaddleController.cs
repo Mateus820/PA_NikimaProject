@@ -39,10 +39,9 @@ public class PaddleController : MonoBehaviour {
 
     void Update()
     {
-         moveBySwipe = managerOpt.moveBySwipe;
-         transform.position = new Vector3(Mathf.Clamp(transform.position.x,-2.18f ,2.18f) , transform.position.y);
-         rb.velocity = new Vector2 (Mathf.Clamp(rb.velocity.x ,-speed * Time.deltaTime, speed * Time.deltaTime) , rb.velocity.y);
-
+        moveBySwipe = managerOpt.moveBySwipe;
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x,-2.18f ,2.18f) , transform.position.y);
+        rb.velocity = new Vector2 (Mathf.Clamp(rb.velocity.x ,-speed * Time.deltaTime, speed * Time.deltaTime) , rb.velocity.y);
     }
 
     #region InputEvents

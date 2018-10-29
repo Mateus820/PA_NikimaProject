@@ -53,7 +53,7 @@ private Rigidbody2D rb;
 
 	void GameInit()
 	{
-		SceneManager.LoadScene("Game");
+		SceneManager.LoadScene(sceneBuildIndex: 1);
 	}
 
 }
