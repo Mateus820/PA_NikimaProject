@@ -6,7 +6,8 @@ TagManager:
   tags:
   - ScreenBottom
   - Pink
-  - GreenBall
+  - Blue
+  - Green
   layers:
   - Default
   - TransparentFX
