@@ -5,34 +5,36 @@ using UnityEngine;
 public class ArrowsController : MoveController {
 
     public bool isClicking { get; private set; }
-    [SerializeField] private PaddleController paddleControl;
-    [SerializeField] private BallShot ballShot;
-    private Animator animLeftArrow, animRightArrow;
+    [SerializeField] private Animator animLeftArrow, animRightArrow;
 
-
-    private void Start()
+    void Awake() {
+        ballShot.isJoystick = false;
+    }
+    void Start()
     {
-        rb = paddleControl.rb;
-        speed = paddleControl.speed;
-        animLeftArrow = paddleControl.animLeftArrow;
-        animRightArrow = paddleControl.animRightArrow;
+        rb = paddle.rb;
+        speed = paddle.speed;
+    }
+
+    void OnEnable() {
+        ballShot.isJoystick = false;
     }
 
     private void Update()
     {
-        if (paddleControl.ballCount > 0 && ballShot.rotZ > 0)
+        if (paddle.ballCount > 0 && ballShot.rotZ > 0)
         {
             if (Input.GetMouseButton(0) && !isClicking)
             {
                 ballShot.angleArrow.SetActive(true);
-                ballShot.ChangeColor = false;
+                ballShot.changeColor = false;
             }
 
             if (Input.GetMouseButtonUp(0))
             {
                 ballShot.angleArrow.SetActive(false);
-                ballShot.Shot(paddleControl);
-                ballShot.ChangeColor = true;
+                ballShot.Shot(paddle);
+                ballShot.changeColor = true;
             }
         }
     }

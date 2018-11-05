@@ -5,38 +5,40 @@ using UnityEngine;
 public class SwipeController : MoveController {
 
     public bool isMovingWithSwipe { get; private set; }
-    [SerializeField] private PaddleController paddleControl;
-    [SerializeField] private BallShot ballShot;
     private Collider2D coll;
 
     private void Start()
     {
-        rb = paddleControl.rb;
-        coll = paddleControl.coll;
+        rb = paddle.rb;
+        coll = paddle.coll;
+    }
+
+    void OnEnable() {
+        ballShot.isJoystick = false;    
     }
 
     private void Update()
     {
-        if (paddleControl.ballCount > 0 && ballShot.rotZ > 0 && !isMovingWithSwipe)
+        if (paddle.ballCount > 0 && ballShot.rotZ > 0 && !isMovingWithSwipe)
         {
             if (Input.GetMouseButton(0))
             {
                 ballShot.angleArrow.SetActive(true);
-                ballShot.ChangeColor = false;
+                ballShot.changeColor = false;
             }
 
             if (Input.GetMouseButtonUp(0))
             {
                 ballShot.angleArrow.SetActive(false);
-                ballShot.Shot(paddleControl);
-                ballShot.ChangeColor = true;
+                ballShot.Shot(paddle);
+                ballShot.changeColor = true;
             }
         }
 
         if (isMovingWithSwipe)
         {
             ballShot.angleArrow.SetActive(false);
-            ballShot.ChangeColor = true;
+            ballShot.changeColor = true;
         }
     }
 

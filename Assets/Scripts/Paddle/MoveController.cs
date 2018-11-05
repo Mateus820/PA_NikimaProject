@@ -4,8 +4,9 @@ using UnityEngine;
 
 abstract public class MoveController : MonoBehaviour {
 
-	[SerializeField] protected float speed;
-	protected PaddleController paddle;
+	protected float speed;
+	[SerializeField] protected PaddleController paddle;
+	[SerializeField] protected BallShot ballShot;
 	protected Rigidbody2D rb;
 
 }

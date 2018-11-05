@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
     public Vector2 playerPos;
     public SwipeController swipe;
     public ArrowsController arrow;
+    public JoystickController joystick;
     public GameObject arrowsUI;
 
     void Start () {
@@ -18,21 +19,31 @@ public class GameManager : MonoBehaviour {
         { 
             Instantiate(player, playerPos, Quaternion.identity);
         }
+        InvokeRepeating("UpdateController", 0f, 10f);
     }
 	
-	void Update () {
+	void UpdateController () {
 
         if (PlayerPrefs.GetString("PlayerMovement") == "swipe")
         {
             arrowsUI.SetActive(false);
             arrow.enabled = false;
+            joystick.enabled = false;
             swipe.enabled = true;
         }
-        else 
+        else if(PlayerPrefs.GetString("PlayerMovement") == "arrows")
         {
             arrowsUI.SetActive(true);
-            swipe.enabled = false;
+            swipe.enabled = false; 
+            joystick.enabled = false;
             arrow.enabled = true;
+        }
+        else
+        {
+            arrowsUI.SetActive(false);
+            arrow.enabled = false;
+            swipe.enabled = false; 
+            joystick.enabled = true;
         }
 
     }

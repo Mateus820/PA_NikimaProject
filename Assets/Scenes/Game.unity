@@ -624,7 +624,7 @@ Prefab:
         type: 2}
       propertyPath: managerOpt
       value: 
-      objectReference: {fileID: 659645134}
+      objectReference: {fileID: 0}
     - target: {fileID: 114894636973140964, guid: 1da07fb83a813bf4383be63c918bde47,
         type: 2}
       propertyPath: ballCountScript
@@ -684,6 +684,16 @@ Prefab:
       propertyPath: coll
       value: 
       objectReference: {fileID: 1757506074}
+    - target: {fileID: 114826715656237448, guid: 1da07fb83a813bf4383be63c918bde47,
+        type: 2}
+      propertyPath: paddle
+      value: 
+      objectReference: {fileID: 1757506072}
+    - target: {fileID: 114826715656237448, guid: 1da07fb83a813bf4383be63c918bde47,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1da07fb83a813bf4383be63c918bde47, type: 2}
   m_IsPrefabParent: 0
@@ -984,12 +994,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &659645134 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114712492225865942, guid: 94c33f67172421546b67db769e7623d8,
-    type: 2}
-  m_PrefabInternal: {fileID: 1532751957}
-  m_Script: {fileID: 11500000, guid: 35cf599523820524e9de4b05ec4b143a, type: 3}
 --- !u!4 &1036790143 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4161679854915820, guid: ed148f3c6b0d51a44a1764314d2bcfcd,
@@ -1135,6 +1139,52 @@ Canvas:
   m_PrefabParentObject: {fileID: 223692532281033902, guid: 79167250dae14524982406dbbb0df546,
     type: 2}
   m_PrefabInternal: {fileID: 2075903077}
+--- !u!1 &1113358679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1113358681}
+  - component: {fileID: 1113358680}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1113358680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1113358679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35cf599523820524e9de4b05ec4b143a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1757506070}
+  playerPos: {x: 0, y: 0}
+  swipe: {fileID: 1757506076}
+  arrow: {fileID: 1757506075}
+  joystick: {fileID: 1757506077}
+  arrowsUI: {fileID: 320481509}
+--- !u!4 &1113358681
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1113358679}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1139183956 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4161679854915820, guid: ed148f3c6b0d51a44a1764314d2bcfcd,
@@ -1348,7 +1398,13 @@ Prefab:
       propertyPath: arrow
       value: 
       objectReference: {fileID: 1757506075}
-    m_RemovedComponents: []
+    - target: {fileID: 114712492225865942, guid: 94c33f67172421546b67db769e7623d8,
+        type: 2}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 1757506077}
+    m_RemovedComponents:
+    - {fileID: 114712492225865942, guid: 94c33f67172421546b67db769e7623d8, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 94c33f67172421546b67db769e7623d8, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1564323458 stripped
@@ -1388,19 +1444,35 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1757506070}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8747940eb8140554e8419b04af69d303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paddleControl: {fileID: 1757506072}
+  paddle: {fileID: 1757506072}
   ballShot: {fileID: 1964329178}
+  animLeftArrow: {fileID: 2122999531}
+  animRightArrow: {fileID: 1494341517}
 --- !u!114 &1757506076 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114826715656237448, guid: 1da07fb83a813bf4383be63c918bde47,
     type: 2}
   m_PrefabInternal: {fileID: 326956985}
   m_Script: {fileID: 11500000, guid: 5eefb32af836d0e48b7ee5431e93d0f4, type: 3}
+--- !u!114 &1757506077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1757506070}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c563baf93aaf474ea1fd6aa0e2ae1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paddle: {fileID: 1757506072}
+  ballShot: {fileID: 1964329178}
+  joyObject: {fileID: 1127588829706126, guid: 35e39feb339bd5144928784a01a8106f, type: 2}
 --- !u!114 &1867362408 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114834839074573820, guid: 79167250dae14524982406dbbb0df546,
