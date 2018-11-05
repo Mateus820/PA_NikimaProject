@@ -9,7 +9,10 @@ public class Settings : MonoBehaviour {
 
 	void OnEnable()
 	{
-		print("OnEnable");
+        if (!PlayerPrefs.HasKey("PlayerMovement")){
+            PlayerPrefs.SetString("PlayerMovement", "arrows");
+        }
+
 		if(PlayerPrefs.GetString("PlayerMovement") == "arrows"){
 			swipeAnim.SetBool("glitching" , false);
 			arrowsAnim.SetBool("glitching" , true);
@@ -20,21 +23,13 @@ public class Settings : MonoBehaviour {
 		}
 	}
 
-	void Start () 
-	{
-		print("Start");
-		if(!PlayerPrefs.HasKey("PlayerMomevent")){
-			PlayerPrefs.SetString("PlayerMovement" , "arrows");
-		}
-	}
-
 	public void ChoosingArrows()
 	{
 		PlayerPrefs.SetString("PlayerMovement" , "arrows");
-
 		//animações
 		swipeAnim.SetBool("glitching" , false);
 		arrowsAnim.SetBool("glitching" , true);
+		PlayerPrefs.Save();
 	}
 
 	public void ChoosingSwipe()
@@ -43,6 +38,7 @@ public class Settings : MonoBehaviour {
 		//animações
 		arrowsAnim.SetBool("glitching" , false);
 		swipeAnim.SetBool("glitching" , true);
+		PlayerPrefs.Save();
 	}
 
 }

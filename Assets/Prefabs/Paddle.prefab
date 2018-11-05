@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4667291573291566}
   - component: {fileID: 212144392076941392}
   m_Layer: 0
-  m_Name: Art
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 61138638125465504}
   - component: {fileID: 50156366894510808}
   - component: {fileID: 114894636973140964}
+  - component: {fileID: 114826715656237448}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Player
@@ -190,6 +191,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotZ: 0
+  joystickSpeed: 0
+  isJoystickShooting: 0
+  joystickFollow: {fileID: 0}
   angleArrow: {fileID: 1376934473202788}
   ballCount: {fileID: 0}
   delaySetColor: 1
@@ -205,6 +209,19 @@ MonoBehaviour:
   - {r: 0.20784314, g: 0.5019608, b: 0.34509805, a: 1}
   - {r: 1, g: 0.6627451, b: 0, a: 1}
   - {r: 0, g: 0.16862746, b: 0.16470589, a: 1}
+--- !u!114 &114826715656237448
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1987866224582198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eefb32af836d0e48b7ee5431e93d0f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paddleControl: {fileID: 0}
+  ballShot: {fileID: 0}
 --- !u!114 &114894636973140964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,8 +244,12 @@ MonoBehaviour:
   - {r: 0.20784314, g: 0.5019608, b: 0.34509805, a: 0}
   - {r: 1, g: 0.6627451, b: 0, a: 0}
   - {r: 0, g: 0.16862746, b: 0.16470589, a: 0}
+  isJoyStickMoving: 0
+  rb: {fileID: 0}
+  coll: {fileID: 0}
   speed: 200
   ballCountScript: {fileID: 0}
+  finalSpeed: {x: 0, y: 0}
   animLeftArrow: {fileID: 0}
   animRightArrow: {fileID: 0}
 --- !u!212 &212114791015914898

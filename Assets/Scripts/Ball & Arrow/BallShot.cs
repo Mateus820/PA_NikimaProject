@@ -16,43 +16,21 @@ public class BallShot : MonoBehaviour {
 	[SerializeField] private float offset;
     [SerializeField] private float[] limits;
 	[SerializeField] private Color[] colors;
-	private PaddleController playerScript;
 	private bool changeColor;
 	public bool ChangeColor{ get{return changeColor;} set {changeColor = value;} }
 
     void Start() 
 	{
 		changeColor = true;
-		isJoystickShooting = true;
+		isJoystickShooting = false;
 
 		angleArrow.SetActive(false);
-        playerScript = Singleton.GetInstance.playerScript;
 		StartCoroutine(SetColor());
     }
-	void Update () {
-        if (!playerScript.isMovingWithSwipe && rotZ > 0 && playerScript.ballCount > 0) {
-            if (Input.GetMouseButton(0) && !playerScript.isClicking && !isJoystickShooting)
-            {   
-				//paddleSprite.color = RandomBallColor();
-                angleArrow.SetActive(true);
-            }
 
-            if (Input.GetMouseButtonUp(0) && !isJoystickShooting)
-            {
-                angleArrow.SetActive(false);
 
-				//CancelRoutine();
-                Shot(playerScript);
-				changeColor = true;
-            }
-			if(Input.GetMouseButtonDown(0) && !isJoystickShooting){
-				changeColor = false;
-			}
-        }
-
-        if (playerScript.isMovingWithSwipe)
-            angleArrow.SetActive(false);
-
+	void Update ()
+    {
 		Vector3 difference = Difference();
 		rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
 
@@ -62,32 +40,34 @@ public class BallShot : MonoBehaviour {
 			transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
 		}
 
-		float x = Input.GetAxisRaw("Horizontal");
-		if(isJoystickShooting){
-			joystickFollow.Translate(x * joystickSpeed, 0f, 0f);
-			joystickFollow.position = new Vector3(Mathf.Clamp(joystickFollow.position.x, -5f, 5f), 0, 0);
-			angleArrow.SetActive(true);
-		}
-		if(Input.GetButtonUp("Fire1")){
-			angleArrow.SetActive(false);
-			ChangeColor = true;
-			if(isJoystickShooting){
-				Shot(playerScript);
-				isJoystickShooting = false;
-				playerScript.isJoyStickMoving = true;
-			}
+		//float x = Input.GetAxisRaw("Horizontal");
+		//if(isJoystickShooting){
+		//	joystickFollow.Translate(x * joystickSpeed, 0f, 0f);
+		//	joystickFollow.position = new Vector3(Mathf.Clamp(joystickFollow.position.x, -5f, 5f), 0, 0);
+		//	angleArrow.SetActive(true);
+		//}
+		//if(Input.GetButtonUp("Fire1")){
+		//	angleArrow.SetActive(false);
+		//	ChangeColor = true;
+		//	if(isJoystickShooting){
+		//		Shot(playerScript);
+		//		isJoystickShooting = false;
+		//		playerScript.isJoyStickMoving = true;
+		//	}
 
-		}
+		//}
 	}
 
-	Vector3 Difference(){
-		if(isJoystickShooting){
+	public Vector3 Difference()
+    {
+		if(isJoystickShooting)
+        {
 			return joystickFollow.position - transform.position;
 		}
 		return Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 	}
 
-	void Shot(PaddleController playerScript){
+	public void Shot(PaddleController playerScript){
 		var obj =  ObjectPooler.instance.GetPooledObject();
 
 		SpriteRenderer sp = obj.GetComponentInChildren<SpriteRenderer>();
