@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour {
     public GameObject arrowsUI;
 
     void Start () {
+        AudioManager audio = AudioManager.instance;
+        if(audio != null){
+            audio.StopAll();
+            audio.Play("Glitch 2.5");
+        }
         player = Singleton.GetInstance.player;
         playerPos = new Vector2(0,-4);
 

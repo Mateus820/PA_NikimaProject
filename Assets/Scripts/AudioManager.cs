@@ -5,7 +5,7 @@ using System;
 
 public class AudioManager : MonoBehaviour {
 
-	private static AudioManager instance;
+	public static AudioManager instance;
 	public Sound[] sounds;
 
 	void Awake() {
@@ -16,7 +16,6 @@ public class AudioManager : MonoBehaviour {
 		else{
 			Destroy(gameObject);
 		}
-
 		SetAudio();
 	}
 
@@ -39,7 +38,8 @@ public class AudioManager : MonoBehaviour {
 		}
 		s.source.Play();
 	}
-	public void Pause(){
+
+	public void Pause(string name){
 		Sound s = Array.Find(sounds, sound => sound.name == name);
 		if(s == null){
 			Debug.LogWarning("Sound: " + name + "doesn't exist!");
@@ -47,4 +47,11 @@ public class AudioManager : MonoBehaviour {
 		}
 		s.source.Pause();
 	} 
+
+	public void StopAll(){
+		foreach(Sound s in sounds){
+			s.source.Stop();
+		}
+	}
+	
 }

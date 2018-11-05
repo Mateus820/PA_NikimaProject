@@ -30,7 +30,7 @@ public class PaddleController : MonoBehaviour {
     #region PhysicsUpdate
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.gameObject.tag == "GreenBall" || coll.gameObject.tag == "OrangeBall" || coll.gameObject.tag == "BlueBall" || coll.gameObject.tag == "PinkBall")
+        if (coll.gameObject.tag == "Green" || coll.gameObject.tag == "Yellow" || coll.gameObject.tag == "Blue" || coll.gameObject.tag == "Pink")
         {
             ballsHitted++;
             AddingBalls();
@@ -52,6 +52,7 @@ public class PaddleController : MonoBehaviour {
             }
         }
     }
+    
     public void DecreasingBalls()
     {
         activeBall++;

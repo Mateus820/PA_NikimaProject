@@ -5,25 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class CodeUI : MonoBehaviour {
 
-public Color invisible;
+	public Color invisible;
+	private SpriteRenderer sp;
+	public GameObject canvas;
+	public ParticleSystem zeroParticle;
+	public ParticleSystem oneParticle;
+	public Animator anim;
+	public Animator anim2;
+	private Rigidbody2D rb;
 
-private SpriteRenderer sp;
-public GameObject canvas;
-public ParticleSystem zeroParticle;
-public ParticleSystem oneParticle;
-
-public Animator anim;
-public Animator anim2;
-private Rigidbody2D rb;
-
-	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 		sp = GetComponent<SpriteRenderer>();
 	}
 	
-	// Update is called once per frame
-
 	public void Fall()
 	{
 		rb.gravityScale = 0.5f;
@@ -54,6 +49,10 @@ private Rigidbody2D rb;
 	void GameInit()
 	{
 		SceneManager.LoadScene(sceneBuildIndex: 1);
+	}
+
+	public void StartSoundEffect(){
+		AudioManager.instance.Play("Caindo");
 	}
 
 }

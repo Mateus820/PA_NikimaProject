@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour {
 
-    // Use this for initialization
     float seconds;
     int minutes;
     int secondsUI;
@@ -15,7 +14,7 @@ public class Timer : MonoBehaviour {
     void Start()
     {
         minutes = 3;
-        seconds = 60f;       
+        seconds = 46f;       
         secondsUI = 0;
     }
 
@@ -37,9 +36,9 @@ public class Timer : MonoBehaviour {
         {
             timeUI.text = minutes.ToString() + ":0" + secondsUI.ToString();
         }
-
-        //if(minutes < 0){
-        //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        //}
+        
+        if(minutes <= 0 && seconds <= 0){
+            SceneManager.LoadScene(sceneBuildIndex: 2);
+        }
     }
 }
