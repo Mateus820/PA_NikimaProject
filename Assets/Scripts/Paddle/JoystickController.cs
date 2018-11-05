@@ -15,9 +15,9 @@ public class JoystickController : MoveController {
 	}
 
 	void Start() {
+		ballShot.isJoystick = true;
 		rb = paddle.rb;
 		speed = paddle.speed;
-		ballShot.isJoystick = true;
 	}
 	
 	void Update () {
@@ -38,9 +38,14 @@ public class JoystickController : MoveController {
 		}
 
 		if(!isShooting)
+		{
 			Move();
+		}
 		else
+		{
 			MoveTarget();
+			rb.velocity = Vector2.zero;
+		}
 	}
 
 	void Move(){

@@ -23,10 +23,6 @@ public class Settings : MonoBehaviour {
 		}
 	}
 
-	void Start() {
-		ChoosingJoystick();
-	}
-
 	public void ChoosingArrows()
 	{
 		PlayerPrefs.SetString("PlayerMovement" , "arrows");
@@ -47,6 +43,8 @@ public class Settings : MonoBehaviour {
 
 	public void ChoosingJoystick(){
 		PlayerPrefs.SetString("PlayerMovement", "joystick");
+		arrowsAnim.SetBool("glitching" , false);
+		swipeAnim.SetBool("glitching" , false);
 		PlayerPrefs.Save();
 	}
 

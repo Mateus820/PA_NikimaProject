@@ -14,7 +14,7 @@ public class BallShot : MonoBehaviour {
 	[SerializeField] private SpriteRenderer arrowSprite;
 	[SerializeField] private float offset;
     [SerializeField] private float[] limits;
-	[SerializeField] private Color[] colors;
+	[SerializeField] private Color_Name[] colors;
 	public bool changeColor;
 
     void Start() 
@@ -56,6 +56,7 @@ public class BallShot : MonoBehaviour {
 
 		SpriteRenderer sp = obj.GetComponentInChildren<SpriteRenderer>();
 		sp.color = paddleSprite.color;
+		obj.tag = SetTag(sp.color);
 
 		if(obj != null){
 			obj.transform.position = transform.position;
@@ -66,13 +67,26 @@ public class BallShot : MonoBehaviour {
 
 	Color RandomBallColor(Color cl){
 		Color colorReturn;
-		if((colorReturn = colors[Random.Range(0, colors.Length - 1)]) == cl){
+		if((colorReturn = colors[Random.Range(0, colors.Length - 1)].color) == cl){
 			RandomBallColor(paddleSprite.color);
 		}
 		//print(cl);
 		return colorReturn;
 	}
+	string SetTag(Color target)
+	{
+		for(int i = 0; i < colors.Length; i++)
+		{
+			if(target == colors[i].color)
+			{
+				return colors[i].name;
+			}
+		}
+		
+		return "Error";
+	}
 
+	 
 	IEnumerator SetColor(){
 		while(true){
 			if(changeColor){

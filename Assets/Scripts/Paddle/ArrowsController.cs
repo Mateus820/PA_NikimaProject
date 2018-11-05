@@ -12,6 +12,7 @@ public class ArrowsController : MoveController {
     }
     void Start()
     {
+        ballShot.isJoystick = false;
         rb = paddle.rb;
         speed = paddle.speed;
     }

@@ -9,12 +9,9 @@ public class SwipeController : MoveController {
 
     private void Start()
     {
+        ballShot.isJoystick = false;
         rb = paddle.rb;
         coll = paddle.coll;
-    }
-
-    void OnEnable() {
-        ballShot.isJoystick = false;    
     }
 
     private void Update()

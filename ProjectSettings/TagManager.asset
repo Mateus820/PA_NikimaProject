@@ -8,6 +8,10 @@ TagManager:
   - Pink
   - Blue
   - Green
+  - GreenBall
+  - DarkBlue
+  - Error
+  - Yellow
   layers:
   - Default
   - TransparentFX
