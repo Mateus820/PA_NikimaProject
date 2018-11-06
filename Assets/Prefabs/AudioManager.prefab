@@ -60,12 +60,18 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Glitch 2.5
     audio: {fileID: 8300000, guid: b0f44449b950e594db605fca3271696c, type: 3}
-    volume: 1
+    volume: 0
     PlayOnAwake: 0
     loop: 0
     source: {fileID: 0}
   - name: Caindo
-    audio: {fileID: 8300000, guid: 939882feca3e743498b813abffb23d9c, type: 3}
+    audio: {fileID: 8300000, guid: f593f4cf5c0084842a113df59d5166a4, type: 3}
+    volume: 1
+    PlayOnAwake: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Shot
+    audio: {fileID: 8300000, guid: 5bc140bad780a0b4b9fa323bb6a472e6, type: 3}
     volume: 1
     PlayOnAwake: 0
     loop: 0

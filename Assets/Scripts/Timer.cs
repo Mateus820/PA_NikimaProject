@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour {
 
+    public AudioSource audioSource;
     float seconds;
     int minutes;
     int secondsUI;
@@ -20,7 +21,6 @@ public class Timer : MonoBehaviour {
 
     void Update()
     {
-
         seconds -= Time.deltaTime;
         if (seconds <= 0)
         {

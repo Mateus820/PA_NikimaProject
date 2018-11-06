@@ -787,6 +787,16 @@ Prefab:
       propertyPath: plusOneBall
       value: 
       objectReference: {fileID: 1934115014}
+    - target: {fileID: 114547439127163934, guid: 1da07fb83a813bf4383be63c918bde47,
+        type: 2}
+      propertyPath: delaySetColor
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114547439127163934, guid: 1da07fb83a813bf4383be63c918bde47,
+        type: 2}
+      propertyPath: isJoystick
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1da07fb83a813bf4383be63c918bde47, type: 2}
   m_IsPrefabParent: 0
