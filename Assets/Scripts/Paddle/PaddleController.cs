@@ -13,6 +13,7 @@ public class PaddleController : MonoBehaviour {
     public Collider2D coll;
     public BallCount ballCountScript;
     public Color[] colors;
+    public Animator plusOneBall;
 
 	void Start (){
         health = 3;
@@ -48,7 +49,9 @@ public class PaddleController : MonoBehaviour {
             if (ballCount < 8 && (ballCount + activeBall) < 8)
             {
                 ballCount++;
+                plusOneBall.SetTrigger("appear");
                 ballCountScript.UpdateUI(ballCount);
+                
             }
         }
     }
