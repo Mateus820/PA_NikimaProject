@@ -1,12 +1,13 @@
-﻿    using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallScript : MonoBehaviour {
+public class BallCode : MonoBehaviour {
  
 	[SerializeField] private float ballForce;
 	[SerializeField] private Rigidbody2D rb;
 	[SerializeField] private CircleCollider2D circleColl;
+	[SerializeField] private AudioSource audioSource;
 
 	void OnEnable() {
 		Shot();
@@ -28,6 +29,10 @@ public class BallScript : MonoBehaviour {
 			instance.playerScript.activeBall--;
 			gameObject.SetActive(false);
 		}
+	}
+
+	void OnCollisionEnter2D(Collision2D coll) {
+		audioSource.Play();	
 	}
 
     void FixedUpdate()

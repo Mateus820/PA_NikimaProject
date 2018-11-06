@@ -51,7 +51,8 @@ public class BallShot : MonoBehaviour {
 		joystickFollow = joy;
 	}
 
-	public void Shot(PaddleController playerScript){
+	public void Shot(PaddleController playerScript) {
+
 		var obj =  ObjectPooler.instance.GetPooledObject();
 
 		SpriteRenderer sp = obj.GetComponentInChildren<SpriteRenderer>();
@@ -61,6 +62,7 @@ public class BallShot : MonoBehaviour {
 		if(obj != null){
 			obj.transform.position = transform.position;
 			obj.SetActive(true);
+			AudioManager.instance.Play("Shot");
 			playerScript.DecreasingBalls();
 		}
 	}
