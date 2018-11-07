@@ -9,7 +9,7 @@ public class BallShot : MonoBehaviour {
 	[SerializeField] private Transform joystickFollow;
 	public GameObject angleArrow;
 	[SerializeField] private BallCount ballCount;
-	[SerializeField] private float delaySetColor;
+	[SerializeField] private float delaySetColor, minDelaySetColor;
 	[SerializeField] private SpriteRenderer paddleSprite;
 	[SerializeField] private SpriteRenderer arrowSprite;
 	[SerializeField] private float offset;
@@ -99,7 +99,13 @@ public class BallShot : MonoBehaviour {
 		}
 	}
 
-	public void ColorVelocity(float delay){
-		delaySetColor = delay;
+	public void ColorChangeSpeed(float delay)
+	{
+		delaySetColor -= delay;
+	}
+
+	public float Variance()
+	{
+		return delaySetColor - minDelaySetColor;
 	}
 }

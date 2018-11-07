@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Timer : MonoBehaviour {
+public class TimerCount : MonoBehaviour {
 
     public AudioSource audioSource;
-    float seconds;
+    public BallShot ballShot;
+    public float velocitySwap;
+    float seconds, totalSeconds, variance;
     int minutes;
     int secondsUI;
     [SerializeField] Text timeUI;
@@ -17,6 +19,9 @@ public class Timer : MonoBehaviour {
         minutes = 3;
         seconds = 46f;       
         secondsUI = 0;
+        totalSeconds = minutes * 60f + seconds;
+        variance = ballShot.Variance();
+        StartCoroutine(VelocitySwap());
     }
 
     void Update()
@@ -41,4 +46,20 @@ public class Timer : MonoBehaviour {
             SceneManager.LoadScene(sceneBuildIndex: 2);
         }
     }
+
+    private float AllSeconds()
+    {
+        float final = minutes * 60f;
+        final += seconds;
+        return final;
+    }    
+    IEnumerator VelocitySwap()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(velocitySwap);
+            ballShot.ColorChangeSpeed(velocitySwap * (variance/totalSeconds));
+        }
+    }
 }
+
