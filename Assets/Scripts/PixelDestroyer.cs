@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class PixelDestroyer : MonoBehaviour {
 
-private void OnCollisionEnter2D(Collision2D other) 
-{
-	if(other.gameObject.tag == this.gameObject.tag)
+	private void OnCollisionEnter2D(Collision2D coll) 
 	{
-
-		Destroy(gameObject);		
+		if(coll.gameObject.tag == this.gameObject.tag || this.gameObject.tag == "Untagged" )
+		{
+			Destroy(gameObject);		 	
+		}  
 	}
-}
-
 }

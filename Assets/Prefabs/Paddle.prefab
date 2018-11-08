@@ -72,6 +72,8 @@ GameObject:
   - component: {fileID: 50156366894510808}
   - component: {fileID: 114894636973140964}
   - component: {fileID: 114826715656237448}
+  - component: {fileID: 114041408241057268}
+  - component: {fileID: 114718015332862148}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Player
@@ -114,7 +116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1376934473202788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.34, z: 0}
+  m_LocalPosition: {x: 0, y: 3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4997333681932332}
@@ -166,7 +168,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0008223355, y: 0.007666111}
+  m_Offset: {x: 0.0008, y: 0.007}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -177,8 +179,23 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.85, y: 0.67802334}
+  m_Size: {x: 1.85, y: 0.65}
   m_EdgeRadius: 0
+--- !u!114 &114041408241057268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1987866224582198}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8747940eb8140554e8419b04af69d303, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paddle: {fileID: 114894636973140964}
+  ballShot: {fileID: 114547439127163934}
+  animLeftArrow: {fileID: 0}
+  animRightArrow: {fileID: 0}
 --- !u!114 &114547439127163934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,8 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotZ: 0
-  joystickSpeed: 0
-  isJoystickShooting: 0
+  isJoystick: 0
   joystickFollow: {fileID: 0}
   angleArrow: {fileID: 1376934473202788}
   ballCount: {fileID: 0}
@@ -204,24 +220,44 @@ MonoBehaviour:
   - 30
   - 150
   colors:
-  - {r: 0.5294118, g: 0.12941177, b: 0.29803923, a: 1}
-  - {r: 0, g: 1, b: 0.98039216, a: 1}
-  - {r: 0.20784314, g: 0.5019608, b: 0.34509805, a: 1}
-  - {r: 1, g: 0.6627451, b: 0, a: 1}
-  - {r: 0, g: 0.16862746, b: 0.16470589, a: 1}
+  - color: {r: 0.5294118, g: 0.12941177, b: 0.29803923, a: 1}
+    name: Pink
+  - color: {r: 0, g: 1, b: 0.98039216, a: 1}
+    name: Blue
+  - color: {r: 0.20784314, g: 0.5019608, b: 0.34509805, a: 1}
+    name: Green
+  - color: {r: 1, g: 0.6627451, b: 0, a: 1}
+    name: Yellow
+  - color: {r: 0, g: 0.16862746, b: 0.16470589, a: 1}
+    name: DarkBlue
+  changeColor: 0
+--- !u!114 &114718015332862148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1987866224582198}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c563baf93aaf474ea1fd6aa0e2ae1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paddle: {fileID: 114894636973140964}
+  ballShot: {fileID: 114547439127163934}
+  joyObject: {fileID: 1127588829706126, guid: 35e39feb339bd5144928784a01a8106f, type: 2}
 --- !u!114 &114826715656237448
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1987866224582198}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5eefb32af836d0e48b7ee5431e93d0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paddleControl: {fileID: 0}
-  ballShot: {fileID: 0}
+  paddle: {fileID: 114894636973140964}
+  ballShot: {fileID: 114547439127163934}
 --- !u!114 &114894636973140964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -233,25 +269,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3ccc2f9896b184d83c4a4b395d8cd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  managerOpt: {fileID: 0}
   health: 0
   ballCount: 0
   ballsHitted: 0
   activeBall: 0
-  colors:
-  - {r: 0.5294118, g: 0.12941177, b: 0.29803923, a: 0}
-  - {r: 0, g: 1, b: 0.98039216, a: 0}
-  - {r: 0.20784314, g: 0.5019608, b: 0.34509805, a: 0}
-  - {r: 1, g: 0.6627451, b: 0, a: 0}
-  - {r: 0, g: 0.16862746, b: 0.16470589, a: 0}
-  isJoyStickMoving: 0
-  rb: {fileID: 0}
-  coll: {fileID: 0}
   speed: 200
+  rb: {fileID: 50156366894510808}
+  coll: {fileID: 61138638125465504}
   ballCountScript: {fileID: 0}
-  finalSpeed: {x: 0, y: 0}
-  animLeftArrow: {fileID: 0}
-  animRightArrow: {fileID: 0}
+  colors:
+  - {r: 0.93725497, g: 0.3529412, b: 0.93725497, a: 1}
+  - {r: 0, g: 1, b: 0.98039216, a: 1}
+  - {r: 0.007843138, g: 0.9921569, b: 0.4666667, a: 1}
+  - {r: 1, g: 0.6627451, b: 0, a: 1}
+  - {r: 0, g: 0.16862746, b: 0.16470589, a: 1}
+  plusOneBall: {fileID: 0}
 --- !u!212 &212114791015914898
 SpriteRenderer:
   m_ObjectHideFlags: 1
