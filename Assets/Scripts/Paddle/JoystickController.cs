@@ -11,6 +11,9 @@ public class JoystickController : MoveController {
 	void Awake() {
 		var obj = Instantiate(joyObject, Vector3.zero, Quaternion.identity);
 		joyTransform = obj.transform;
+	}
+
+	void OnEnable() {
 		ballShot.SetJoystick(joyTransform);
 	}
 
@@ -38,9 +41,7 @@ public class JoystickController : MoveController {
 		}
 
 		if(!isShooting)
-		{
 			Move();
-		}
 		else
 		{
 			MoveTarget();
@@ -50,7 +51,7 @@ public class JoystickController : MoveController {
 
 	void Move(){
 		float x = Input.GetAxisRaw("Horizontal");
-		rb.velocity = new Vector2(x * speed * Time.deltaTime, 0);
+		rb.velocity = new Vector2(x * (speed * 2) * Time.deltaTime, 0);
 	}
 
 	void MoveTarget(){

@@ -42,6 +42,7 @@ public class CodeUI : MonoBehaviour {
 	{
 		zeroParticle.Pause();
 		oneParticle.Pause();
+		AudioManager.instance.Play("Caindo");
 		StartCoroutine(ChangingScene());
 		
 	}
@@ -50,9 +51,7 @@ public class CodeUI : MonoBehaviour {
 	{
 		SceneManager.LoadScene(sceneBuildIndex: 1);
 	}
-
-	public void StartSoundEffect(){
-		AudioManager.instance.Play("Caindo");
+	
 	}
 
-}
+	

@@ -9,7 +9,7 @@ public class BallShot : MonoBehaviour {
 	[SerializeField] private Transform joystickFollow;
 	public GameObject angleArrow;
 	[SerializeField] private BallCount ballCount;
-	[SerializeField] private float delaySetColor;
+	[SerializeField] private float delaySetColor, minDelaySetColor;
 	[SerializeField] private SpriteRenderer paddleSprite;
 	[SerializeField] private SpriteRenderer arrowSprite;
 	[SerializeField] private float offset;
@@ -51,16 +51,18 @@ public class BallShot : MonoBehaviour {
 		joystickFollow = joy;
 	}
 
-	public void Shot(PaddleController playerScript){
+	public void Shot(PaddleController playerScript) {
+
 		var obj =  ObjectPooler.instance.GetPooledObject();
 
 		SpriteRenderer sp = obj.GetComponentInChildren<SpriteRenderer>();
 		sp.color = paddleSprite.color;
 		obj.tag = SetTag(sp.color);
-
+		print(obj);
 		if(obj != null){
 			obj.transform.position = transform.position;
 			obj.SetActive(true);
+			AudioManager.instance.Play("Shot");
 			playerScript.DecreasingBalls();
 		}
 	}
@@ -95,5 +97,15 @@ public class BallShot : MonoBehaviour {
 			}
 			yield return new WaitForSeconds(delaySetColor);
 		}
+	}
+
+	public void ColorChangeSpeed(float delay)
+	{
+		delaySetColor -= delay;
+	}
+
+	public float Variance()
+	{
+		return delaySetColor - minDelaySetColor;
 	}
 }
