@@ -5,7 +5,7 @@ using UnityEngine;
 abstract public class MoveController : MonoBehaviour {
 
 	protected float speed;
-	protected Rigidbody2D rb;
+	[SerializeField] protected Rigidbody2D rb;
 	[SerializeField] protected PaddleController paddle;
 	[SerializeField] protected BallShot ballShot;
 

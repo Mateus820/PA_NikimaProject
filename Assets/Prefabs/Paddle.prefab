@@ -192,6 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8747940eb8140554e8419b04af69d303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 50156366894510808}
   paddle: {fileID: 114894636973140964}
   ballShot: {fileID: 114547439127163934}
   animLeftArrow: {fileID: 0}
@@ -208,11 +209,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotZ: 0
-  isJoystick: 0
+  isJoystick: 1
   joystickFollow: {fileID: 0}
   angleArrow: {fileID: 1376934473202788}
   ballCount: {fileID: 0}
-  delaySetColor: 1
+  delaySetColor: 0.5
+  minDelaySetColor: 0.25
   paddleSprite: {fileID: 212144392076941392}
   arrowSprite: {fileID: 212484594997487962}
   offset: -90
@@ -220,11 +222,11 @@ MonoBehaviour:
   - 30
   - 150
   colors:
-  - color: {r: 0.5294118, g: 0.12941177, b: 0.29803923, a: 1}
+  - color: {r: 0.93725497, g: 0.3529412, b: 0.93725497, a: 1}
     name: Pink
-  - color: {r: 0, g: 1, b: 0.98039216, a: 1}
+  - color: {r: 0.32156864, g: 0.96470594, b: 0.9568628, a: 1}
     name: Blue
-  - color: {r: 0.20784314, g: 0.5019608, b: 0.34509805, a: 1}
+  - color: {r: 0.007843138, g: 0.9921569, b: 0.4666667, a: 1}
     name: Green
   - color: {r: 1, g: 0.6627451, b: 0, a: 1}
     name: Yellow
@@ -242,6 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c563baf93aaf474ea1fd6aa0e2ae1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   paddle: {fileID: 114894636973140964}
   ballShot: {fileID: 114547439127163934}
   joyObject: {fileID: 1127588829706126, guid: 35e39feb339bd5144928784a01a8106f, type: 2}
@@ -256,6 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eefb32af836d0e48b7ee5431e93d0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   paddle: {fileID: 114894636973140964}
   ballShot: {fileID: 114547439127163934}
 --- !u!114 &114894636973140964
@@ -277,12 +281,6 @@ MonoBehaviour:
   rb: {fileID: 50156366894510808}
   coll: {fileID: 61138638125465504}
   ballCountScript: {fileID: 0}
-  colors:
-  - {r: 0.93725497, g: 0.3529412, b: 0.93725497, a: 1}
-  - {r: 0, g: 1, b: 0.98039216, a: 1}
-  - {r: 0.007843138, g: 0.9921569, b: 0.4666667, a: 1}
-  - {r: 1, g: 0.6627451, b: 0, a: 1}
-  - {r: 0, g: 0.16862746, b: 0.16470589, a: 1}
   plusOneBall: {fileID: 0}
 --- !u!212 &212114791015914898
 SpriteRenderer:
