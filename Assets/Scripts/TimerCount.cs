@@ -16,7 +16,7 @@ public class TimerCount : MonoBehaviour {
 
     void Start()
     {
-        minutes = 3;
+        minutes = 0;
         seconds = 46f;       
         secondsUI = 0;
         totalSeconds = minutes * 60f + seconds;
@@ -29,10 +29,15 @@ public class TimerCount : MonoBehaviour {
         seconds -= Time.deltaTime;
         if (seconds <= 0)
         {
-            minutes -= 1;
-            seconds = 60f;
+            if(minutes > 0){
+                minutes -= 1;
+                seconds = 60f;
+            }
+            else{
+                SceneManager.LoadScene(sceneBuildIndex: 2);
+            }
         }
-        secondsUI = (int)seconds;
+        secondsUI = (int) seconds;
         if (seconds >= 10)
         {
             timeUI.text = minutes.ToString() + ":" + secondsUI.ToString();
@@ -40,10 +45,6 @@ public class TimerCount : MonoBehaviour {
         else
         {
             timeUI.text = minutes.ToString() + ":0" + secondsUI.ToString();
-        }
-        
-        if(minutes <= 0 && seconds <= 0){
-            SceneManager.LoadScene(sceneBuildIndex: 2);
         }
     }
 
