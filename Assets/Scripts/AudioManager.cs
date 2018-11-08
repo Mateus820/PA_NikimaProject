@@ -55,5 +55,14 @@ public class AudioManager : MonoBehaviour {
 		}
       
 	}
+
+	public float GetMusicTime(string name){
+		foreach(Sound s in sounds){
+			if(s.name == name){
+				return s.source.time;
+			}
+		}
+		return 0;
+	}
 	
 }

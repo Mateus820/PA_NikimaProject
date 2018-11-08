@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class TimerCount : MonoBehaviour {
 
-    public AudioSource audioSource;
     public BallShot ballShot;
     public float velocitySwap;
     public bool runTime;
@@ -17,8 +16,9 @@ public class TimerCount : MonoBehaviour {
 
     void Start()
     {
-        minutes = 0;
-        seconds = 46f;       
+        runTime = true;
+        minutes = 3;
+        seconds = 26f;       
         secondsUI = 0;
         totalSeconds = minutes * 60f + seconds;
         variance = ballShot.Variance();

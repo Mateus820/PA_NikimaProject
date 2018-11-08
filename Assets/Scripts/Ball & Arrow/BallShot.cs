@@ -10,11 +10,15 @@ public class BallShot : MonoBehaviour {
 	public GameObject angleArrow;
 	[SerializeField] private BallCount ballCount;
 	[SerializeField] private float delaySetColor, minDelaySetColor;
+	public float DelaySetColor{
+		get {return delaySetColor;}
+		set {delaySetColor = value;}
+	}
 	[SerializeField] private SpriteRenderer paddleSprite;
 	[SerializeField] private SpriteRenderer arrowSprite;
 	[SerializeField] private float offset;
     [SerializeField] private float[] limits;
-	[SerializeField] private Color_Name[] colors;
+	[SerializeField] private List<Color_Name> colors;
 	public bool changeColor;
 
     void Start() 
@@ -69,16 +73,31 @@ public class BallShot : MonoBehaviour {
 	}
 
 	Color RandomBallColor(Color cl){
-		Color colorReturn;
-		if((colorReturn = colors[Random.Range(0, colors.Length - 1)].color) == cl){
-			RandomBallColor(paddleSprite.color);
+		Color colorReturn = Color.white;
+		Color_Name tempColor;
+		//Verificar qual a cor;
+		int index = 0;
+		for (int i = 0; i < colors.Count; i++)
+		{
+			if(colors[i].color == cl){
+				index = i;
+			}
 		}
-		//print(cl);
+		tempColor = colors[index];
+		//Remove-la;
+		colors.RemoveAt(index);
+
+		//Cor aleatoria;
+		int randomIndex = Random.Range(0, colors.Count);
+		colorReturn = colors[randomIndex].color;
+
+		//Colocar a cor novamente;
+		colors.Add(tempColor);
 		return colorReturn;
 	}
 	string SetTag(Color target)
 	{
-		for(int i = 0; i < colors.Length; i++)
+		for(int i = 0; i < colors.Count; i++)
 		{
 			if(target == colors[i].color)
 			{
