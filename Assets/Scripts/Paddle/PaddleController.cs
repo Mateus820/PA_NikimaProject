@@ -12,7 +12,6 @@ public class PaddleController : MonoBehaviour {
     public Rigidbody2D rb;
     public Collider2D coll;
     public BallCount ballCountScript;
-    public Color[] colors;
     public Animator plusOneBall;
 
 	void Start (){

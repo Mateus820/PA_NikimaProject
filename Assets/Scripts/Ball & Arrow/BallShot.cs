@@ -62,7 +62,8 @@ public class BallShot : MonoBehaviour {
 		if(obj != null){
 			obj.transform.position = transform.position;
 			obj.SetActive(true);
-			AudioManager.instance.Play("Shot");
+			if(AudioManager.instance != null)
+				AudioManager.instance.Play("Shot");
 			playerScript.DecreasingBalls();
 		}
 	}
