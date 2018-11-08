@@ -21,7 +21,7 @@ public class BallCode : MonoBehaviour {
 		{
 			//Get instance;
 			Singleton instance = Singleton.GetInstance;
-
+            AudioManager.instance.Play("MissedBall");
 			instance.cameraScript.CameraShake();
 			instance.playerScript.health -= 1;
 			instance.healthUI.LifeCheck(Singleton.GetInstance.playerScript.health);
@@ -38,6 +38,7 @@ public class BallCode : MonoBehaviour {
     void FixedUpdate()
     {
 		//Clamp velocity;
+        
         rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -4, 4), Mathf.Clamp(rb.velocity.y, -4, 4));   
     }
     #endregion PhysicsUpdate

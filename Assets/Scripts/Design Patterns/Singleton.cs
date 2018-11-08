@@ -14,11 +14,16 @@ public class Singleton : MonoBehaviour {
 	public CameraController cameraScript;
 	
 	public Transform paddleTransform;
+
 	public BallShot ballShot;
+
+    public GameManager gm;
 
 	public HealthUI healthUI;
 
-	private static Singleton instance;
+    public PlayerLosedTransition transitionToGameOver;
+
+    private static Singleton instance;
 	
 
 	public static Singleton GetInstance{

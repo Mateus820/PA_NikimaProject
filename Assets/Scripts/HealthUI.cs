@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+
 
 public class HealthUI : MonoBehaviour {
 
+    public TimerCount tc;
 	public GameObject[] UIHeart;
 	
 	IEnumerator DestroingHeart(GameObject corazon)
@@ -30,8 +31,10 @@ public class HealthUI : MonoBehaviour {
 
 			case 0:
 				StartCoroutine(DestroingHeart(UIHeart[0]));
-				SceneManager.LoadScene(sceneBuildIndex: 2);
-			break;
+                Singleton.GetInstance.playerScript.speed = 0;
+                Singleton.GetInstance.transitionToGameOver.PlayerLosed();
+                tc.runTime = false;
+                break;
 
 		}
 	}

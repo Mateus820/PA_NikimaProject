@@ -58,9 +58,9 @@ MonoBehaviour:
     PlayOnAwake: 1
     loop: 0
     source: {fileID: 0}
-  - name: Glitch 2.5
-    audio: {fileID: 8300000, guid: b0f44449b950e594db605fca3271696c, type: 3}
-    volume: 0
+  - name: Glitch 3.0
+    audio: {fileID: 8300000, guid: bab547d6bdf33c444b7e781ba827115a, type: 3}
+    volume: 1
     PlayOnAwake: 0
     loop: 0
     source: {fileID: 0}
@@ -72,6 +72,30 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Shot
     audio: {fileID: 8300000, guid: 5bc140bad780a0b4b9fa323bb6a472e6, type: 3}
+    volume: 1
+    PlayOnAwake: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Transition
+    audio: {fileID: 8300000, guid: 3457ba592fba4e943bd20bae7a90acc3, type: 3}
+    volume: 1
+    PlayOnAwake: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: MissedBall
+    audio: {fileID: 8300000, guid: ff0c5551eb516ea4f834c9646a0ab87d, type: 3}
+    volume: 1
+    PlayOnAwake: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Crack
+    audio: {fileID: 8300000, guid: d46da770cabf41c4eae7859039d3aada, type: 3}
+    volume: 1
+    PlayOnAwake: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: GameOver
+    audio: {fileID: 8300000, guid: 67044b7bb572e424da9896fde03122a7, type: 3}
     volume: 1
     PlayOnAwake: 0
     loop: 0

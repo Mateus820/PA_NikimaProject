@@ -37,6 +37,7 @@ public class AudioManager : MonoBehaviour {
 			return;
 		}
 		s.source.Play();
+       
 	}
 
 	public void Pause(string name){
@@ -52,6 +53,7 @@ public class AudioManager : MonoBehaviour {
 		foreach(Sound s in sounds){
 			s.source.Stop();
 		}
+      
 	}
 	
 }

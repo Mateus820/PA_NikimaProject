@@ -10,12 +10,15 @@ public class GameManager : MonoBehaviour {
     public ArrowsController arrow;
     public JoystickController joystick;
     public GameObject arrowsUI;
+    public int pixelsDestroyed;
 
     void Start () {
+
+        pixelsDestroyed = 0;
         AudioManager audio = AudioManager.instance;
         if(audio != null){
             audio.StopAll();
-            audio.Play("Glitch 2.5");
+            audio.Play("Glitch 3.0");
         }
         player = Singleton.GetInstance.player;
         playerPos = new Vector2(0,-4);
@@ -26,6 +29,7 @@ public class GameManager : MonoBehaviour {
         }
         InvokeRepeating("UpdateController", 0f, 10f);
     }
+
 	
 	void UpdateController () {
 
@@ -52,4 +56,5 @@ public class GameManager : MonoBehaviour {
         }
 
     }
+
 }

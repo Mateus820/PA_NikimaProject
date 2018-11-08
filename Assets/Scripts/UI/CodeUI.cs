@@ -31,8 +31,9 @@ public class CodeUI : MonoBehaviour {
 		sp.color = invisible;
 		zeroParticle.Clear();
 		oneParticle.Clear();
-		anim.SetTrigger("glitching");
-		anim2.SetTrigger("glitching");
+        AudioManager.instance.Play("Transition");
+		anim.SetBool("glitching",true);
+		anim2.SetBool("glitching",true);
 		yield return new WaitForSeconds(1f);
 		GameInit();
 		

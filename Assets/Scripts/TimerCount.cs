@@ -9,6 +9,7 @@ public class TimerCount : MonoBehaviour {
     public AudioSource audioSource;
     public BallShot ballShot;
     public float velocitySwap;
+    public bool runTime;
     float seconds, totalSeconds, variance;
     int minutes;
     int secondsUI;
@@ -26,6 +27,8 @@ public class TimerCount : MonoBehaviour {
 
     void Update()
     {
+        if (!runTime) return;
+
         seconds -= Time.deltaTime;
         if (seconds <= 0)
         {
