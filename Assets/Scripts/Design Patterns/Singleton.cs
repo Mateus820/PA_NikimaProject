@@ -17,6 +17,8 @@ public class Singleton : MonoBehaviour {
 
 	public BallShot ballShot;
 
+    public BallCode ballCode;
+
     public GameManager gm;
 
 	public HealthUI healthUI;

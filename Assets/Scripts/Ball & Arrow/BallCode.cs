@@ -5,7 +5,7 @@ using UnityEngine;
 public class BallCode : MonoBehaviour {
  
 	[SerializeField] private float ballForce;
-	[SerializeField] private Rigidbody2D rb;
+	[SerializeField] public Rigidbody2D rb;
 	[SerializeField] private CircleCollider2D circleColl;
 	[SerializeField] private AudioSource audioSource;
 

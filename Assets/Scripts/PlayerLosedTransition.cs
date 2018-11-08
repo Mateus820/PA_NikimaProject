@@ -22,6 +22,7 @@ public class PlayerLosedTransition : MonoBehaviour {
     { 
         oneParticle.Pause();
         zeroParticle.Pause();
+        ObjectPooler.instance.StopAllBalls();
         GameObject.Find("Main Camera").GetComponent<AudioListener>().enabled = false;
         AudioManager.instance.StopAll();
         yield return new WaitForSeconds(2f);

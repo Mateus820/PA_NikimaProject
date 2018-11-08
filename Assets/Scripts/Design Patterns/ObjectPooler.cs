@@ -42,4 +42,16 @@ public class ObjectPooler : MonoBehaviour {
 		}
 		return null;
 	}
+    public void StopAllBalls()
+    {
+        for (int i = 0; i < pooledObjects.Count; i++)
+        {
+            if (pooledObjects[i].activeSelf)
+            {
+                pooledObjects[i].GetComponent<Rigidbody2D>().drag = 100;
+            }
+        }
+    }
+   
+
 }

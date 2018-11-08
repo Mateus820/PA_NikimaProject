@@ -29,7 +29,7 @@ public class HealthUI : MonoBehaviour {
 				StartCoroutine(DestroingHeart(UIHeart[1]));
 			break;
 
-			case 0:
+			default:
 				StartCoroutine(DestroingHeart(UIHeart[0]));
                 Singleton.GetInstance.playerScript.speed = 0;
                 Singleton.GetInstance.transitionToGameOver.PlayerLosed();

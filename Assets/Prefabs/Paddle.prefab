@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4997333681932332}
   - component: {fileID: 212114791015914898}
   - component: {fileID: 114547439127163934}
+  - component: {fileID: 114922931220997340}
   m_Layer: 0
   m_Name: BallSpawn
   m_TagString: Untagged
@@ -179,7 +180,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.85, y: 0.123282194}
+  m_Size: {x: 1.85, y: 0.65}
   m_EdgeRadius: 0
 --- !u!114 &114041408241057268
 MonoBehaviour:
@@ -228,10 +229,6 @@ MonoBehaviour:
     name: Blue
   - color: {r: 0.007843138, g: 0.9921569, b: 0.4666667, a: 1}
     name: Green
-  - color: {r: 1, g: 0.6627451, b: 0, a: 1}
-    name: Yellow
-  - color: {r: 0, g: 0.16862746, b: 0.16470589, a: 1}
-    name: DarkBlue
   changeColor: 0
 --- !u!114 &114718015332862148
 MonoBehaviour:
@@ -259,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eefb32af836d0e48b7ee5431e93d0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 50156366894510808}
   paddle: {fileID: 114894636973140964}
   ballShot: {fileID: 114547439127163934}
 --- !u!114 &114894636973140964
@@ -282,6 +279,18 @@ MonoBehaviour:
   coll: {fileID: 61138638125465504}
   ballCountScript: {fileID: 0}
   plusOneBall: {fileID: 0}
+--- !u!114 &114922931220997340
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143288994104124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a81d0947ac0cc3448f4d244a9cfb672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballShot: {fileID: 114547439127163934}
 --- !u!212 &212114791015914898
 SpriteRenderer:
   m_ObjectHideFlags: 1

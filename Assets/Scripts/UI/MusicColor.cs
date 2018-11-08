@@ -12,57 +12,57 @@ public class MusicColor : MonoBehaviour {
 	}
 
 	void Update () {
-		print(AudioManager.instance.GetMusicTime("Glitch 2.5"));
+		print(AudioManager.instance.GetMusicTime("Glitch 3.0"));
 		
-		if(AudioManager.instance.GetMusicTime("Glitch 2.5") >= 8f)
+		if(AudioManager.instance.GetMusicTime("Glitch 3.0") >= 8f)
 		{
 			ballShot.DelaySetColor = 0.95f;
 		}
-		if(AudioManager.instance.GetMusicTime("Glitch 2.5") >= 15f)
+		if(AudioManager.instance.GetMusicTime("Glitch 3.0") >= 15f)
 		{
 			ballShot.DelaySetColor = 0.65f;
 		}
-		if(AudioManager.instance.GetMusicTime("Glitch 2.5") >= 23f)
+		if(AudioManager.instance.GetMusicTime("Glitch 3.0") >= 23f)
 		{
 			ballShot.DelaySetColor = 0.55f;
 		}
-		if(AudioManager.instance.GetMusicTime("Glitch 2.5") >= 37f)
+		if(AudioManager.instance.GetMusicTime("Glitch 3.0") >= 37f)
 		{
 			ballShot.DelaySetColor = 0.35f;
 		}
-		if(AudioManager.instance.GetMusicTime("Glitch 2.5") >= 67f)
+		if(AudioManager.instance.GetMusicTime("Glitch 3.0") >= 67f)
 		{
 			ballShot.DelaySetColor = 0.20f;
 		}
-		if(AudioManager.instance.GetMusicTime("Glitch 2.5") >= 74f)
+		if(AudioManager.instance.GetMusicTime("Glitch 3.0") >= 74f)
 		{
 			ballShot.DelaySetColor = 0.15f;
 		}
-		if(AudioManager.instance.GetMusicTime("Glitch 2.5") >= 81f)
+		if(AudioManager.instance.GetMusicTime("Glitch 3.0") >= 81f)
 		{
 			ballShot.DelaySetColor = 0.13f;
 		}
-		if(AudioManager.instance.GetMusicTime("Glitch 2.5") >= 110f)
+		if(AudioManager.instance.GetMusicTime("Glitch 3.0") >= 110f)
 		{
 			ballShot.DelaySetColor = 0.20f;
 		}
-		if(AudioManager.instance.GetMusicTime("Glitch 2.5") >= 126f)
+		if(AudioManager.instance.GetMusicTime("Glitch 3.0") >= 126f)
 		{
 			ballShot.DelaySetColor = 0.15f;
 		}
-		if(AudioManager.instance.GetMusicTime("Glitch 2.5") >= 131f)
+		if(AudioManager.instance.GetMusicTime("Glitch 3.0") >= 131f)
 		{
 			ballShot.DelaySetColor = 0.13f;
 		}
-		if(AudioManager.instance.GetMusicTime("Glitch 2.5") >= 148f)
+		if(AudioManager.instance.GetMusicTime("Glitch 3.0") >= 148f)
 		{
 			ballShot.DelaySetColor = 0.15f;
 		}
-		if(AudioManager.instance.GetMusicTime("Glitch 2.5") >= 177f)
+		if(AudioManager.instance.GetMusicTime("Glitch 3.0") >= 177f)
 		{
 			ballShot.DelaySetColor = 0.01f;
 		}
-		if(AudioManager.instance.GetMusicTime("Glitch 2.5") >= 196f)
+		if(AudioManager.instance.GetMusicTime("Glitch 3.0") >= 196f)
 		{
 			ballShot.DelaySetColor = 0.01f;
 		}

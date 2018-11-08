@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PixelDestroyer : MonoBehaviour {
 
@@ -11,7 +13,7 @@ public class PixelDestroyer : MonoBehaviour {
             Singleton.GetInstance.gm.pixelsDestroyed++;
             if (Singleton.GetInstance.gm.pixelsDestroyed++ >= 630)
            {
-           print("Win");
+                SceneManager.LoadScene(4);
         }
            // AudioManager.instance.Play("Crack");
 			Destroy(gameObject);		 	
