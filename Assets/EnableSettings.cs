@@ -8,11 +8,24 @@ public class EnableSettings : MonoBehaviour {
 
 	public void OpenMenu()
 	{
-		settingsMenu.SetActive(true);
+        StartCoroutine(OpeningMenu());
 	}
 		
 	public void CloseMenu()
 	{
-		settingsMenu.SetActive(false);
+        StartCoroutine(ClosingMenu());
 	}
+
+
+    IEnumerator OpeningMenu()
+    {
+        yield return new WaitForSeconds(0.5f);
+        settingsMenu.SetActive(true);
+    }
+
+    IEnumerator ClosingMenu()
+    {
+        yield return new WaitForSeconds(0.5f);
+        settingsMenu.SetActive(false);
+    }
 }
