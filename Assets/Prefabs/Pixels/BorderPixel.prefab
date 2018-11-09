@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4161679854915820}
   - component: {fileID: 61117351368336318}
   - component: {fileID: 212165951475624632}
-  - component: {fileID: 114176719730261122}
+  - component: {fileID: 114703558411614246}
   m_Layer: 0
   m_Name: BorderPixel
   m_TagString: Untagged
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.0766871, y: 0.0766871}
   m_EdgeRadius: 0
---- !u!114 &114176719730261122
+--- !u!114 &114703558411614246
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -75,9 +75,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1304424040934754}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b676212509e787c42a71e870813fd4dd, type: 3}
+  m_Script: {fileID: 11500000, guid: c0ae14dec18417f4da8886c46d854a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effect: {fileID: 1768353336807676, guid: 74381a55f86684b4ca803bb6ad8ac5aa, type: 2}
 --- !u!212 &212165951475624632
 SpriteRenderer:
   m_ObjectHideFlags: 1
