@@ -6,6 +6,8 @@ public class SwipeController : MoveController {
 
     public bool isMovingWithSwipe { get; private set; }
     private Collider2D coll;
+    
+    public GameManager gm;
 
     private void Start()
     {
@@ -43,6 +45,7 @@ public class SwipeController : MoveController {
     {
         if (isMovingWithSwipe)
         {
+            if(gm.swipeTutorial.activeSelf)
             Vector3 realMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             rb.MovePosition(new Vector2(realMousePos.x, rb.position.y));
         }
